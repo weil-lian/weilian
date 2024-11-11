@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>我的主页</title>
+		<style type="text/css">
+			.box{
+				width: 1200px;
+				height: 460px;
+				position: relative;
+			}
+			.box-img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity:0;
+				transition: all 1.5s;
+			}
+			.box-img:nth-child(1){
+				opacity: 1;
+			}
+			.box-left{
+				position: absolute;
+				width: 35px;
+				height: 70px;
+				color: #ccc;
+				top: 180px;
+				border-radius: 0 5px 5px 0;
+				text-align: center;
+				line-height: 70px;
+				font-size: 27px;
+			}
+			.box-left:hover{
+				background-color: #00000050;
+				color: #fff;
+			}
+			.box-right{
+				position: absolute;
+				width: 35px;
+				height: 70px;
+				color: #ccc;
+				top: 180px;
+				border-radius: 0 5px 5px 0;
+				text-align: center;
+				line-height: 70px;
+				font-size: 27px;
+				right: 0;
+			}
+			.box-right:hover{
+				background-color: #00000050;
+				color: #fff;
+			}
+			.box-zhiding>ul{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.box-zhiding li{
+				width: 14px;
+				height:14px;
+				border-radius:100%;
+				background-color:#ccc;
+				float: left;
+				margin-right: 20px;
+			}
+			.box-zhiding li:hover{
+				background-color: #fff;
+			}
+			.box-zhiding{
+				position: absolute;
+				bottom: 70px;
+				right: 420px;
+			}
+			body{text-align: center;}
+			ul{list-style-type: none;text-align: center;}
+			li{display: inline;margin: 1px 22px;font-size: 22px;}
+			.juse{width: 837px;height: 680px;margin: 0 auto;border: 1px solid #eef3aa;}
+			a:active,a:visited,a:link{text-decoration: none;color:black}
+			a:hover{text - decoration: none;border - bottom: 5px solid red;color:red}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		<div class="box-img"><img src="伪恋.jpg"width="800"height="420"></div>
+		<div class="box-img"><img src="亚托利.jpg"width="800"height="420"></div>
+		<div class="box-img"><img src="时崎狂三.jpg"width="800"height="420"></div>
+		<div class="box-img"><img src="椎名真昼.jpg"width="800"height="420"></div>
+		<div class="box-left">&lt;</div>
+		<div class="box-right">&gt;</div>
+		<div class="box-zhiding">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			
+		</div>
+	</div>	
+	<div class="juse">
+		<hr />
+		<ul>
+			<li><a href="桐崎千棘.html"target="content">桐崎千棘</a></li>
+			<li><a href="亚托利.html"target="content">亚托莉</a></li>
+			<li><a href="时崎狂三.html"target="content">时崎狂三</a></li>
+			<li><a href="椎名真昼.html"target="content">椎名真昼</a></li>
+		</ul>
+		<iframe frameborder="0" name="content" src="桐崎千棘.html"width="100%" height="260%"></iframe>
+	</div>
+	<script type="text/javascript" src="jquery-3.7.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var index=0;
+			var f;
+			dingzhiqi();
+			function dingzhiqi(){
+				var f=setInterval(function(){
+					if(index==$(".box-img").length-1){
+						index=0;
+						$(".box-img").css("opacity","0");
+						$(".box-img").eq(index).css("opacity","1");
+					}else{
+						index++
+						$(".box-img").css("opacity","0");
+						$(".box-img").eq(index).css("opacity","1");
+					}
+				},4000)
+			}
+			$(".box-left").click(function(){
+				clearInterval(f);
+				if(index==0){
+					index=$(".box-img").length-1;
+					$(".box-img").css("opacity","0");
+					$(".box-img").eq(index).css("opacity","1");
+					dingzhiqi();
+				}else{
+					index--;
+					$(".box-img").css("opacity","0");
+					$(".box-img").eq(index).css("opacity","1");
+					dingzhiqi();
+				}
+			})
+			$(".box-right").click(function(){
+				clearInterval(f);
+				if(index==$(".box-img").length-1){
+					index=0;
+					$(".box-img").css("opacity","0");
+					$(".box-img").eq(index).css("opacity","1");
+					dingzhiqi();
+				}else{
+					index++;
+					$(".box-img").css("opacity","0");
+					$(".box-img").eq(index).css("opacity","1");
+					dingzhiqi();
+				}
+				
+			})
+		})
+		
+	</script>
+	</body>
+</html>
